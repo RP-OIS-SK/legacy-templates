@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import FramelessViewerPageContainer from "../FramelessViewerPageContainer";
 import ReactDom from "react-dom";
+import FramelessViewerPageContainer from "../FramelessViewerPageContainer";
 
 const mockObserve = jest.fn();
 global.MutationObserver = jest
