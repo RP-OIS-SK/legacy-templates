@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { validateSchema, verifySignature } from "@govtechsg/open-attestation";
 import connectToParent from "penpal/lib/connectToParent";
+import ReactDOM from "react-dom";
 import styles from "../certificateViewer.scss";
 import FramelessCertificateViewer from "./FramelessCertificateViewer";
 import { inIframe, formatTemplate } from "./utils";
-import { getLogger } from "../../utils/logger";
-
-const { trace } = getLogger("components:FramelessViewerPageContainer");
 
 class FramelessViewerContainer extends Component {
   constructor(props) {
@@ -14,7 +11,6 @@ class FramelessViewerContainer extends Component {
 
     this.handleDocumentChange = this.handleDocumentChange.bind(this);
     this.selectTemplateTab = this.selectTemplateTab.bind(this);
-    this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
     this.updateParentHeight = this.updateParentHeight.bind(this);
     this.updateParentTemplates = this.updateParentTemplates.bind(this);
     this.obfuscateDocument = this.obfuscateDocument.bind(this);
@@ -51,21 +47,12 @@ class FramelessViewerContainer extends Component {
       }).promise;
       this.setState({ parentFrameConnection });
     }
-    this.updateHeightWhenResize();
-  }
 
-  handleTextFieldChange(e) {
-    const fieldContents = JSON.parse(e.target.value);
-    trace(fieldContents);
-    const validated = validateSchema(fieldContents);
-    if (!validated) {
-      throw new Error(
-        "Certificate string does not conform to OpenCerts schema"
-      );
-    }
-    const verified = verifySignature(fieldContents);
-    trace(`Certificate verification: ${verified}`);
-    this.obfuscateDocument(fieldContents);
+    const config = { attributes: true, childList: true, subtree: true };
+    // eslint-disable-next-line no-undef
+    const observer = new MutationObserver(this.updateParentHeight);
+    // eslint-disable-next-line react/no-find-dom-node
+    observer.observe(ReactDOM.findDOMNode(this), config);
   }
 
   async selectTemplateTab(tabIndex) {
@@ -81,10 +68,6 @@ class FramelessViewerContainer extends Component {
 
   handleDocumentChange(document) {
     this.setState({ document });
-  }
-
-  updateHeightWhenResize() {
-    window.addEventListener("resize", this.updateParentHeight);
   }
 
   async obfuscateDocument(field) {
@@ -123,25 +106,20 @@ class FramelessViewerContainer extends Component {
   }
 
   render() {
-    if (!this.state.document) {
-      return (
-        <input
-          id="certificateContentsString"
-          type="hidden"
-          onChange={this.handleTextFieldChange}
-        />
-      );
-    }
     return (
-      <div className="frameless-tabs" id="rendered-certificate">
-        <FramelessCertificateViewer
-          id={styles["frameless-container"]}
-          tabIndex={this.state.tabIndex}
-          document={this.state.document}
-          updateParentHeight={this.updateParentHeight}
-          updateParentTemplates={this.updateParentTemplates}
-          obfuscateDocument={this.obfuscateDocument}
-        />
+      <div>
+        {this.state.document ? (
+          <div className="frameless-tabs" id="rendered-certificate">
+            <FramelessCertificateViewer
+              id={styles["frameless-container"]}
+              tabIndex={this.state.tabIndex}
+              document={this.state.document}
+              updateParentHeight={this.updateParentHeight}
+              updateParentTemplates={this.updateParentTemplates}
+              obfuscateDocument={this.obfuscateDocument}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }
