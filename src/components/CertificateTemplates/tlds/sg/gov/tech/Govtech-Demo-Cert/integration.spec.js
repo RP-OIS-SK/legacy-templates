@@ -61,6 +61,5 @@ test("Govtech Demo certificate is rendered correctly", async t => {
   await t.eval(() => window.opencerts.selectTemplateTab(2));
 
   // Validate content of third tab
-  await t.wait(1000);
   await t.expect(Media.visible).ok();
 });

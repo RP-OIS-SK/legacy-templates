@@ -10,7 +10,6 @@ const mockCertificateTemplates = [
   { id: "template2", template: Template2 }
 ];
 
-const mockUpdateParentHeight = jest.fn();
 const mockUpdateParentTemplates = jest.fn();
 const mockObfuscateDocument = jest.fn();
 const mockCertificate = {
@@ -27,14 +26,12 @@ it("update functions are executed on mount", () => {
       templates={mockCertificateTemplates}
       tabIndex={1}
       document={mockCertificate}
-      updateParentHeight={mockUpdateParentHeight}
       updateParentTemplates={mockUpdateParentTemplates}
       whitelist={mockValidWhiteList}
       obfuscateDocument={mockObfuscateDocument}
     />
   );
 
-  expect(mockUpdateParentHeight).toHaveBeenCalled();
   expect(mockUpdateParentTemplates).toHaveBeenCalled();
 });
 
@@ -44,7 +41,6 @@ it("returns InvalidCertificateNotice if whitelist is wrong", () => {
       templates={mockCertificateTemplates}
       tabIndex={0}
       document={mockCertificate}
-      updateParentHeight={mockUpdateParentHeight}
       updateParentTemplates={mockUpdateParentTemplates}
       whitelist={mockInvalidWhiteList}
     />
@@ -58,7 +54,6 @@ it("returns SelectedTemplateTab if whitelist is correct", () => {
       templates={mockCertificateTemplates}
       tabIndex={1}
       document={mockCertificate}
-      updateParentHeight={mockUpdateParentHeight}
       updateParentTemplates={mockUpdateParentTemplates}
       whitelist={mockValidWhiteList}
       obfuscateDocument={mockObfuscateDocument}
@@ -68,9 +63,6 @@ it("returns SelectedTemplateTab if whitelist is correct", () => {
   const SelectedTemplate = component.find(Template2);
   expect(SelectedTemplate.exists()).toBe(true);
   expect(SelectedTemplate.prop("certificate")).toEqual(mockCertificate);
-  expect(SelectedTemplate.prop("updateParentHeight")).toEqual(
-    mockUpdateParentHeight
-  );
   expect(SelectedTemplate.prop("handleObfuscation")).toEqual(
     mockObfuscateDocument
   );
