@@ -33,12 +33,46 @@ export const signatureTextStyle = {
 };
 export const printCertStyle = {
   fontFamily: "Old English Text MT",
-  fontWeight: "500!important",
+  fontWeight: "bold",
   fontSize: "3rem",
   color: "#555",
   textAlign: "center"
 };
 
+export const printSCCertStyle = {
+  fontFamily: "Old English Text MT",
+  fontWeight: "bold",
+  fontSize: "3.5rem",
+  color: "#000",
+  textAlign: "center"
+};
+export const SCsignatureTextStyle = {
+  fontFamily: "High Tower Text",
+  fontSize: "1.4rem"
+};
+export const printSCRecipentStyle = {
+  fontFamily: "High Tower Text",
+  fontWeight: "900!important",
+  fontStyle: "italic",
+  fontSize: "2.5rem",
+  color: "#000",
+  textAlign: "center"
+};
+export const printSCTextStyle1 = {
+  fontFamily: "High Tower Text",
+  fontWeight: "500!important",
+  fontStyle: "italic",
+  fontSize: "1.6rem",
+  color: "#555",
+  textAlign: "center"
+};
+export const printSCTextStyle = {
+  fontFamily: "High Tower Text",
+  fontWeight: "500!important",
+  fontSize: "1.6rem",
+  color: "#555",
+  textAlign: "center"
+};
 export const printRecipientStyle = {
   fontFamily: "Lucida Calligraphy",
   fontWeight: "500!important",
@@ -138,7 +172,42 @@ export const renderLogoRPPartner = type => {
     </div>
   );
 };
-
+// signature for short courses
+export const renderACESignatures = certificate => {
+  const certSign = formatSignatoriesPosition(
+    get(certificate, "additionalData.certSignatories[0].position")
+  );
+  return (
+    <div
+      className="row d-flex justify-content-center align-items-end"
+      style={{ marginTop: "0rem", marginBottom: "1rem" }}
+    >
+      <div className="col-6">
+        <div className="px-6">
+          <img
+            style={{ width: "100%", borderBottom: "1px solid black" }}
+            src={get(
+              certificate,
+              "additionalData.certSignatories[0].signature"
+            )}
+          />
+        </div>
+        <div className="text-center">
+          <span style={SCsignatureTextStyle}>
+            {get(certificate, "additionalData.certSignatories[0].name")}
+            <br />
+            {certSign[0]}
+            <br />
+            {certSign.length > 0 ? certSign[1] : null}
+            <br />
+            {get(certificate, "additionalData.certSignatories[0].organisation")}
+            <br />
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
 // type = 0 - PET, 1 - CET
 export const renderTwoSignatures = certificate => {
   const certSign = formatSignatoriesPosition(
@@ -247,6 +316,30 @@ export const renderAwardTextCET = (certificate, type) => (
     </div>
   </div>
 );
+
+// Render the main text for Short Course Cert
+export const renderAwardTextSH = certificate => (
+  <div>
+    <div
+      className="row d-flex justify-content-center"
+      style={{ marginTop: "3rem" }}
+    />
+    <p style={printSCCertStyle}>Certificate of Attendance</p>
+    <br /> <br />
+    <p style={printSCTextStyle1}>This is to certify that</p>
+    <br />
+    <p style={printSCRecipentStyle}>{get(certificate, "recipient.name")}</p>
+    <p style={printSCTextStyle1}>has successfully completed the course</p>
+    <br />
+    <br />
+    <p style={printSCRecipentStyle}>{get(certificate, "name")}</p>
+    <p style={printSCTextStyle}>{get(certificate, "description")}</p>
+    <br />
+    <br />
+    <p style={printSCTextStyle}>Republic Polytechnic, Singapore</p>
+  </div>
+);
+
 export const renderAwardText = certificate => (
   <div>
     <div
