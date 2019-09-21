@@ -28,4 +28,3 @@ test("CET Short Course certificate is rendered correctly", async t => {
     "Republic Polytechnic"
   ]);
 });
-
