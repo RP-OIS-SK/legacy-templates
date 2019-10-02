@@ -11,14 +11,15 @@ const templates = [
   }
 ];
 
-const RPAA2019CSCA = () => (
+const RPAA2019CSCA = props => (
   <MultiCertificateRenderer
     templates={templates}
     whitelist={approvedAddresses}
+    {...props}
   />
 );
 
-RPAA2019CSCA.displayName = "2018-C-SCA Template";
+RPAA2019CSCA.displayName = "2019-C-SCA Template";
 RPAA2019CSCA.propTypes = {
   certificate: PropTypes.object.isRequired
 };
