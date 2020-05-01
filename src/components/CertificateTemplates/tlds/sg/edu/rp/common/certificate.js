@@ -3,7 +3,8 @@ import {
   IMG_LOGO_RP,
   IMG_CERTIFICATE_SEAL,
   IMG_LOGO_ALLPOLY,
-  IMG_LOGO_SUSS
+  IMG_LOGO_SUSS,
+  IMG_LOGO_NP
 } from "./images";
 import {
   formatDDMMMYYYY,
@@ -135,7 +136,15 @@ export const renderSingapore = () => (
     <p style={singaporeTextStyle} />
   </div>
 );
-
+export const renderLogoRPNP = () => (
+  <div className="row d-flex justify-content-center">
+    <div className="col-2" />
+    <div className="row d-flex justify-content-center">
+      <img src={IMG_LOGO_NP} />
+    </div>
+    <div className="col-2" />
+  </div>
+);
 export const renderLogoRP = () => (
   <div className="row d-flex justify-content-center">
     <div className="col-2" />
