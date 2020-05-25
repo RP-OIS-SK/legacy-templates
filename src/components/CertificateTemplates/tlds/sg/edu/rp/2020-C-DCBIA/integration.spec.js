@@ -15,7 +15,7 @@ const validateTextContent = async (t, component, texts) =>
     Promise.resolve()
   );
 
-test("CET Diploma certificate is rendered correctly", async t => {
+test("CET BIA Diploma certificate is rendered correctly", async t => {
   // Inject javascript and execute window.opencerts.renderDocument
   const certificateContent = getData(
     JSON.parse(readFileSync(join(__dirname, Certificate)).toString())
@@ -39,7 +39,7 @@ test("CET Diploma certificate is rendered correctly", async t => {
   await validateTextContent(t, RenderedCertificate, [
     "LYON LIM",
     "Diploma in Engineering",
-    "PRINCIPAL OF THE POLYTECHIC",
+    "REPUBLIC POLYTECHNIC PRINCIPAL",
     "RPCETC17"
   ]);
 
@@ -51,6 +51,6 @@ test("CET Diploma certificate is rendered correctly", async t => {
     "TRANSCRIPT",
     "LYON LIM",
     "S0002434A",
-    "99999999"
+    "1599278"
   ]);
 });

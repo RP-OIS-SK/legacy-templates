@@ -15,7 +15,7 @@ const Template = ({ certificate }) => (
     >
       {renderLogoRP()}
       {renderAwardText(certificate)}
-      {renderTwoSignatures(certificate)}
+      {renderTwoSignatures(certificate, 0)}
       {renderLogoRPPartner(1)}
     </div>
     {renderFooter(certificate)}

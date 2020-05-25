@@ -14,7 +14,7 @@ const validateTextContent = async (t, component, texts) =>
     Promise.resolve()
   );
 
-test("MC certificate is rendered correctly", async t => {
+test("MC BIA certificate is rendered correctly", async t => {
   // Inject javascript and execute window.opencerts.renderDocument
   const certificateContent = getData(
     JSON.parse(readFileSync(join(__dirname, Certificate)).toString())
@@ -51,7 +51,7 @@ test("MC certificate is rendered correctly", async t => {
     "TRANSCRIPT",
     "LYON LIM",
     "S0002434A",
-    "99999999",
+    "15060278",
     "Director"
   ]);
 });

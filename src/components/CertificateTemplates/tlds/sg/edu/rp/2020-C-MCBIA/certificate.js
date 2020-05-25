@@ -14,7 +14,7 @@ const Template = ({ certificate }) => (
     >
       {renderLogoRPNP()}
       {renderAwardTextCET(certificate, 1)}
-      {renderTwoSignatures(certificate)}
+      {renderTwoSignatures(certificate, 0)}
     </div>
     {renderFooter(certificate)}
   </div>

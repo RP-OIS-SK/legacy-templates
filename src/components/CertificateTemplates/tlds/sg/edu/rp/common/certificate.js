@@ -217,8 +217,8 @@ export const renderACESignatures = certificate => {
     </div>
   );
 };
-// type = 0 - PET, 1 - CET
-export const renderTwoSignatures = certificate => {
+// displayname  = 1 - SD for BIA
+export const renderTwoSignatures = (certificate, displayName) => {
   const certSign = formatSignatoriesPosition(
     get(certificate, "additionalData.certSignatories[0].position")
   );
@@ -238,12 +238,15 @@ export const renderTwoSignatures = certificate => {
           />
         </div>
         <div className="text-center">
-          <span style={signatureTextStyle}>{certSign[0]}</span>
-        </div>
-        <div className="text-center">
           <span style={signatureTextStyle}>
             {certSign.length > 0 ? certSign[1] : null}
+            {displayName > 0
+              ? get(certificate, "additionalData.certSignatories[0].name")
+              : null}
           </span>
+        </div>
+        <div className="text-center">
+          <span style={signatureTextStyle}>{certSign[0]}</span>
         </div>
       </div>
 
@@ -262,6 +265,13 @@ export const renderTwoSignatures = certificate => {
               "additionalData.certSignatories[1].signature"
             )}
           />
+        </div>
+        <div className="text-center">
+          <span style={signatureTextStyle}>
+            {displayName > 0
+              ? get(certificate, "additionalData.certSignatories[1].name")
+              : null}
+          </span>
         </div>
         <div className="text-center">
           <span style={signatureTextStyle}>
