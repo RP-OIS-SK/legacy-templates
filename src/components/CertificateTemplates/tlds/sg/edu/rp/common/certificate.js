@@ -147,7 +147,7 @@ export const renderLogoRPNP = () => (
   <div className="row d-flex justify-content-center">
     <div className="col-2" />
     <div className="row d-flex justify-content-center">
-      <img style={{width: "1050px"}} src={IMG_LOGO_NP} />
+      <img style={{ width: "1050px" }} src={IMG_LOGO_NP} />
     </div>
     <div className="col-2" />
   </div>
@@ -256,11 +256,11 @@ export const renderTwoSignatures = (certificate, displayName) => {
           <span style={signatureTextStyle}>{certSign[0]}</span>
         </div>
       </div>
-
-      <div className="col-4"><div className="px-4">
-        <img style={sealWidthStyle} src={IMG_CERTIFICATE_SEAL} />
-      </div></div> 
-
+      <div className="col-4">
+        <div className="px-4">
+             <img style={sealWidthStyle} src={IMG_CERTIFICATE_SEAL} />
+        </div>
+      </div> 
       <div className="col-4">
         <div className="px-4">
           <img
