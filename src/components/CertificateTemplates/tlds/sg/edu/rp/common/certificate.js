@@ -28,9 +28,16 @@ export const fullWidthStyle = {
   width: "100%",
   height: "auto"
 };
+export const sealWidthStyle = {
+  width: "95%",
+  height: "auto",
+  textAlign: "center"
+};
+
 export const signatureTextStyle = {
   color: "#090",
-  fontSize: "0.8rem"
+  fontWeight: "bold",
+  fontSize: "1.2rem"
 };
 export const printCertStyle = {
   fontFamily: "Old English Text MT",
@@ -140,7 +147,7 @@ export const renderLogoRPNP = () => (
   <div className="row d-flex justify-content-center">
     <div className="col-2" />
     <div className="row d-flex justify-content-center">
-      <img src={IMG_LOGO_NP} />
+      <img style={{ width: "1050px" }} src={IMG_LOGO_NP} />
     </div>
     <div className="col-2" />
   </div>
@@ -249,13 +256,11 @@ export const renderTwoSignatures = (certificate, displayName) => {
           <span style={signatureTextStyle}>{certSign[0]}</span>
         </div>
       </div>
-
-      <div className="col-1">&nbsp;</div>
-      <div className="col-2">
-        <img style={fullWidthStyle} src={IMG_CERTIFICATE_SEAL} />
+      <div className="col-4">
+        <div className="px-4">
+          <img style={sealWidthStyle} src={IMG_CERTIFICATE_SEAL} />
+        </div>
       </div>
-      <div className="col-1">&nbsp;</div>
-
       <div className="col-4">
         <div className="px-4">
           <img
