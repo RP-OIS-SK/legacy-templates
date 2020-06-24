@@ -1,0 +1,62 @@
+{
+  "schema": "opencerts/v1.4",
+  "data": {
+    "id": "2986f97f-e86a-4a27-89c6-4e4dde816858:string:104070:104070_DBIO_2018",
+    "$template": "f7f7d2b6-e505-4600-b49a-a1fcf3f7c6cf:string:sg/edu/rp/2018-P-CCA",
+    "description": "edfdfe33-66dc-4941-8323-be484b9522e0:string:Diploma in Biotechnology",
+    "issuedOn": "ff677377-0943-47a5-a328-46d709684e7c:string:2018-05-01T00:00:00+08:00",
+    "name": "f9fb7708-4675-4af2-9888-ef0aeddf1ab7:string:Diploma in Biotechnology",
+    "admissionDate": "5bcfa7f0-525b-4a38-9dc9-ad70a5e2ce76:string:2014-04-21T00:00:00+08:00",
+    "graduationDate": "27097e45-8f1c-4b7e-8e7b-04f305baed5b:string:2017-03-24T00:00:00+08:00",
+    "issuers": [
+      {
+        "name": "47b0e156-dc6f-4454-9c61-dbbf62714e6d:string:Republic Polytechnic",
+        "uen": "c54e7be7-1ead-4ac6-afcb-656253236d73:string:U12345678E",
+        "url": "0d72acf0-7977-406f-a562-e61f2a489b20:string:https://www.rp.edu.sg",
+        "email": "f99a6fe8-a9ff-4bfb-adcf-df0607342b2d:string:registrar@rp.edu.sg",
+        "certificateStore": "4768d4a3-d145-4da0-9a07-c897803bd73b:string:0x061aFcFF60b90E0F633F8ef157e01BaB9b2FfDD3"
+      }
+    ],
+    "recipient": {
+      "name": "10a536ed-df99-4d44-92e8-05eb58530927:string:Vincent Goh",
+      "fin": "8c048dbd-1f8e-4b41-a5fc-86d79b0d1981:string:S9992434A",
+      "studentId": "8d7b9fbf-0b21-4150-877f-23d6e35f5c31:string:12345678"
+    },
+    "transcript": [
+      {
+        "name": "9c509da5-4dd4-4321-bce9-d333b5f51512:string:SPORTS EXCELLENCE AWARDS 2014",
+        "grade": "bc08cc11-58ab-47fb-95c2-9e892627c4dd:string:MERITORIOUS SILVER",
+        "courseCredit": "c03ee568-e109-49ed-9526-1574d22ff690:string:PARTICIPANT",
+        "courseCode": "600eec56-a6c7-43c3-bfb2-d7fed9d6dd1a:string:",
+        "semester": "2bf6fc29-d9ee-4ed1-a8bc-fcb275c7d24d:string:ACADEMIC YEAR 2014/2015"
+      },
+      {
+        "name": "dccc6163-19d1-4342-b1c7-e2992c3cff6b:string:CAMP RENAISSANCE 2013",
+        "grade": "ed7022d1-c36c-482b-9861-db11461d90cf:string:NOT APPLICABLE",
+        "courseCredit": "c5f9ecbf-57fe-42d8-932b-eb134e967067:string:PARTICIPANT",
+        "courseCode": "41d9121a-712c-4adc-9cde-bd439c6805e3:string:",
+        "semester": "055f82d9-9b74-4ee6-99fc-21c21e1708a0:string:ACADEMIC YEAR 2013/2014"
+      },
+      {
+        "name": "344e4cd6-8f40-4a0c-a330-d7aba4e166f2:string:SPORTS EXCELLENCE AWARDS 2014",
+        "grade": "d27bf3ce-35fb-41af-8852-cf558f45eed6:string:CERTIFICATE OF MERIT",
+        "courseCredit": "6440c879-c7b9-4d0f-af82-60890057dd66:string:PARTICIPANT",
+        "courseCode": "43c9079e-73a4-407f-80a2-4aba29f29c6a:string:",
+        "semester": "9a3d40ae-15e8-472d-a79c-4e8ba07c8216:string:ACADEMIC YEAR 2013/2014"
+      }
+    ],
+    "additionalData": {
+      "transcriptId": "e71ec9b2-7ef1-4798-8420-040f97d456fb:string:RPT0000074",
+      "transcriptDate": "ff94f73b-c656-4fb7-9ff0-243a5e1623cc:string:2018-08-30T00:00:00+08:00"
+    }
+  },
+  "privacy": {},
+  "signature": {
+    "type": "SHA3MerkleProof",
+    "targetHash": "f01389c42769c395844566283a0c8ebcb763c2032fff13a924d14e48f42d0110",
+    "proof": [
+      "f344a548ddbe759833b47cf89b43467a905b84b8178ae8281ae309680fe4573e"
+    ],
+    "merkleRoot": "f8ef79c15823e4923e482436f775266e890f3c9776a1d84833c1861e06158742"
+  }
+}
