@@ -13,8 +13,9 @@ const getDataFeeder = dataSource => {
   // logo is default
   dataFeeder.studentName = dataSource.recipient.name.toUpperCase();
   // post name text is different for graduate diploma (K5)
+  // name if gradudate diploma can be 'Graduate Diploma in ...' or '... Diploma'
   const degreeTitle = dataSource.additionalData.degreeScroll[0].degreeTitle;
-  if (/^Graduate Diploma/i.test(degreeTitle))
+  if (/Diploma/i.test(degreeTitle))
     dataFeeder.postNameText =
       "having fulfilled the requirements prescribed\nby the University was awarded the";
   dataFeeder.degreeCode = dataSource.additionalData.degreeScroll[0].degreeCode;
