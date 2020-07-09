@@ -183,7 +183,9 @@ class TranscriptHeader extends Component {
             <tr key="pers-info-tr">
               {/* student's personal info */}
               <td className={cls("header-pers-info-key")}>NAME:</td>
-              <td colwidth="26%">{this.headerData.name}</td>
+              <td colwidth="26%" className={cls("ts-student-name")}>
+                {this.headerData.name}
+              </td>
               <td className={cls("header-pers-info-key")}>STUDENT NO:</td>
               <td colwidth="11.5%">{this.headerData.studentId}</td>
               <td className={cls("header-pers-info-key")}>DATE OF BIRTH:</td>
@@ -398,6 +400,9 @@ export class Transcript extends Component {
         child = node.lastElementChild;
       }
     });
+    // must empty redundant array
+    // Otherwise, may see rows missing on switch to another tab and then back
+    this.redundant = [];
   }
 
   // render data into transcript pages

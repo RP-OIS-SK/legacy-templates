@@ -104,7 +104,7 @@ class Degree extends Component {
             <td>
               {/* student name */}
               <div className={cls("cert-name")}>
-                {this.dataSource.recipient.name.toUpperCase()}
+                {this.dataSource.recipient.name}
               </div>
             </td>
           </tr>
