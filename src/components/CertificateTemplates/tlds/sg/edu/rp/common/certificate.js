@@ -37,7 +37,7 @@ export const sealWidthStyle = {
 export const signatureTextStyle = {
   color: "#090",
   fontWeight: "bold",
-  fontSize: "1.2rem"
+  fontSize: "1.1rem"
 };
 export const printCertStyle = {
   fontFamily: "Old English Text MT",
@@ -246,7 +246,6 @@ export const renderTwoSignatures = (certificate, displayName) => {
         </div>
         <div className="text-center">
           <span style={signatureTextStyle}>
-            {certSign.length > 0 ? certSign[1] : null}
             {displayName > 0
               ? get(certificate, "additionalData.certSignatories[0].name")
               : null}
@@ -254,6 +253,11 @@ export const renderTwoSignatures = (certificate, displayName) => {
         </div>
         <div className="text-center">
           <span style={signatureTextStyle}>{certSign[0]}</span>
+        </div>
+        <div className="text-center">
+          <span style={signatureTextStyle}>
+            {certSign.length > 0 ? certSign[1] : null}
+          </span>
         </div>
       </div>
       <div className="col-4">

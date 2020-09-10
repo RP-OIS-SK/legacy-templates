@@ -11,7 +11,7 @@ const templates = [
   }
 ];
 
-const RPAA2020PCCA = props => (
+const RPAA2018PCCA = props => (
   <MultiCertificateRenderer
     templates={templates}
     whitelist={approvedAddresses}
@@ -19,9 +19,9 @@ const RPAA2020PCCA = props => (
   />
 );
 
-RPAA2020PCCA.displayName = "2020-P-CCA Template";
-RPAA2020PCCA.propTypes = {
+RPAA2018PCCA.displayName = "2018-P-CCA Template";
+RPAA2018PCCA.propTypes = {
   certificate: PropTypes.object.isRequired
 };
 
-export default RPAA2020PCCA;
+export default RPAA2018PCCA;

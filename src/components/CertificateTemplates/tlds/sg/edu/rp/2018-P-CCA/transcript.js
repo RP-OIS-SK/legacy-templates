@@ -54,12 +54,18 @@ export const renderHeader = () => (
   </div>
 );
 
+export const descSplit = (ds, i) => {
+  if (!ds) return null;
+  const strDesc = ds.split("|");
+  return strDesc.length > 0 ? strDesc[i] : null;
+};
+
 export const renderSemester = (semester, semesterId) => {
   const subjectRows = semester.map((s, i) => (
     <tr key={i}>
-      <td style={{ textAlign: "left" }}>{s.name}</td>
-      <td style={{ textAlign: "left" }}>{s.courseCredit}</td>
-      <td style={{ textAlign: "left" }}>{s.grade}&nbsp;</td>
+      <td style={{ textAlign: "left" }}>{descSplit(s.name, 0)}</td>
+      <td style={{ textAlign: "left" }}>{descSplit(s.name, 1)}</td>
+      <td style={{ textAlign: "left" }}>{descSplit(s.name, 2)}&nbsp;</td>
     </tr>
   ));
   const sem = get(semester, "[0].semester");
